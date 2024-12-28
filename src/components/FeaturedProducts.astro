@@ -1,0 +1,35 @@
+---
+import ProductCard from "./ProductCard.astro"
+import Section from "./Section.astro"
+const featuredProducts = [
+  {
+    nameProduct:'Nintendo Switch',
+    price:299.99,
+    src:'/shiba_games-logo.svg'
+  },
+  {
+    nameProduct:'PlayStation 5',
+    price:499.99,
+    src:'/shiba_games-logo.svg'
+  },
+  {
+    nameProduct:'Xbox Series X',
+    price:499.99,
+    src:'/shiba_games-logo.svg'
+  },
+  {
+    nameProduct:'The Legend of Zelda',
+    price:59.99,
+    src:'/shiba_games-logo.svg'
+  }
+]
+---
+<Section title="Productos Destacados" className=" text-white">
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4">
+    {
+      featuredProducts.map((product) => (
+        <ProductCard nameProduct={product.nameProduct} price={product.price} src={product.src}/>
+      ))
+    }
+  </div>
+</Section>

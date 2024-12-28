@@ -1,0 +1,28 @@
+---
+import Link from './Link.astro'
+import Section from './Section.astro'
+
+type Category = {
+  name:string
+  svg:string
+  href:string
+}
+interface Props {
+  categories:Category[]
+}
+const { categories } = Astro.props
+---
+<Section title='Categorías' className='text-white'>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4">
+    {
+      categories.map((category) => (
+        <Link class="transform hover:scale-105 transition-transform duration-200 rounded-lg" href={category.href} aria-label={`Ìr a ${category.name}`}>
+          <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center justify-center hover:bg-opacity-20 transition-colors">
+            <img src={category.svg} alt={`Este producto es ${category.name}`} width="40px" height="40px"/>
+            <h3 class="mt-4 text-lg font-semibold text-white">{category.name}</h3>
+          </div>
+        </Link>
+      ))
+    }
+  </div>
+</Section>

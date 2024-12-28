@@ -1,0 +1,25 @@
+---
+import DiscountedProductsCard from "./DiscountedProductsCard.astro"
+import Section from "./Section.astro"
+const discountedProducts = [{
+    nameProduct:'Cyberpunk 2077',
+    price:59.99,
+    src:'/shiba_games-logo.svg',
+    discount:50
+  },
+  {
+    nameProduct:'God of War Ragnarök',
+    price:69.99,
+    src:'/shiba_games-logo.svg',
+    discount:43
+  }]
+---
+<Section title="⏰ Ofertas Especiales" className="text-white">
+  <div class="rounded-lg grid md:grid-cols-2 gap-6">
+    {
+      discountedProducts.map((product) => (
+        <DiscountedProductsCard discount={product.discount} nameProduct={product.nameProduct} price={product.price} src={product.src}/>
+      ))
+    }
+  </div>
+</Section>

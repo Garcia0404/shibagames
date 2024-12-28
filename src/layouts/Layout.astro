@@ -1,22 +1,36 @@
+---
+import Header from "../components/Header.astro";
+import '../styles/global.css'
+import { ClientRouter } from "astro:transitions";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="./shiba_games-logo.svg" />
+    <link rel="preload" href="/background.webp" as="image" />
+    <link rel="preconnect" href="https://shiba-store-back-production.up.railway.app">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <meta
+      name="description" 
+      content="Shiba Games es una tienda de consolas y videojuegos"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>Shiba Games</title>
+    <ClientRouter/>
+  </head>
+  <body class="bg-url">
+    <Header />
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    scrollbar-width: none;
+  }
 </style>

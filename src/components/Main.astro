@@ -1,0 +1,39 @@
+---
+import Categories from "./Categories.astro";
+import FeaturedProducts from "./FeaturedProducts.astro";
+import Search from "./Search.astro";
+import Footer from "./Footer.astro";
+import DiscountedProducts from "./DiscountedProducts.astro";
+import UpcomingReleases from "./UpcomingReleases.astro";
+const categories = [{
+  name:'Acción',
+  svg:'/categories/action.svg',
+  href:'/'
+},{
+  name:'Adventure',
+  svg:'/categories/adventure.svg',
+  href:'/'
+},{
+  name:'Deportes',
+  svg:'/categories/sports.svg',
+  href:'/'
+},{
+  name:'Estrategia',
+  svg:'/categories/strategy.svg',
+  href:'/'
+},{
+  name:'RPG',
+  svg:'/categories/rpg.svg',
+  href:'/'
+},{
+  name:'Arcade',
+  svg:'/categories/arcade.svg',
+  href:'/'
+}]
+---
+<Search/>
+<DiscountedProducts/>
+<Categories categories={categories}/>
+<FeaturedProducts/>
+<UpcomingReleases/>
+<Footer/>

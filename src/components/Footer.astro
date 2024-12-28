@@ -1,0 +1,34 @@
+---
+import Link from "./Link.astro"
+---
+<footer class="p-6 pt-12 bg-gray-main text-white">
+  <div class="grid max-w-7xl mx-auto md:grid-cols-3 gap-6">
+    <div>
+      <h3 class="text-green-400">Shiba Games</h3>
+      <div>Tu tienda de confianza para videojuegos y consolas.</div>
+    </div>
+    <div>
+      <h3 class="text-green-400">Enlaces rápidos</h3>
+      <ul>
+        <li>
+          <Link href='/nosotros' aria-label="Ir a la sección nosotros">Sobre Nosotros</Link>
+        </li>
+        <li>
+          <Link href='https://wa.me/922706045' aria-label="Ir a la sección de contacto">Contacto</Link>
+        </li>
+        <li>
+          <Link href='/faq' aria-label="Ir a la sección de preguntas frecuentes">Preguntas Frecuentes</Link>
+        </li>
+      </ul>
+    </div>
+    <div class="grid gap-6">
+      <h3 class="text-green-400">Síguenos</h3>
+      <ul>
+        <li>Facebook</li>
+        <li>Twitter</li>
+        <li>Instagram</li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center text-[#ff2ce2] mt-12">© 2023 Shiba Games. Todos los derechos reservados.</div>
+</footer>

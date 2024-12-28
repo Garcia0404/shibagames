@@ -1,0 +1,14 @@
+---
+interface Props {
+  src:string
+  name:string
+  releaseDate:string
+}
+const { src,name,releaseDate } = Astro.props
+---
+<article class="mb-8 md:mb-0">
+  <div class="relative bg-gray-200 hover:bg-opacity-80 hover:bg-black transition-all grid place-content-center">
+    <img src={src} alt={name} width="300px" height="300px">
+    <div class="absolute top-full bg-purple-main text-white px-3 py-1">{releaseDate}</div>
+  </div>
+</article>
