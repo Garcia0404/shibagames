@@ -1,0 +1,39 @@
+---
+interface Props {
+  name:string
+  price:number
+  image:string
+  className:string
+}
+const { name, price, image,className } = Astro.props;
+const modalId = `modal-${crypto.randomUUID()}`;
+---
+<dialog id={modalId} class="py-6 px-4 rounded-xl z-20">
+  <h3 class="font-bold text-2xl">{name}</h3>
+  <div class="text-cyan-400">${price}</div>
+  <div class="bg-gray-200 my-4 rounded-lg">
+    <img src={image} alt={`Esto muestra más info del producto ${name}`} width="400px" height="400px">
+  </div>
+  <form method="dialog">
+    <button class="bg-gray-700 text-white p-2 rounded hover:bg-gray-600 w-full transition-all">Cerrar</button>
+  </form>
+</dialog>
+
+<button
+  onclick={`document.querySelector('#${modalId}').showModal()`} 
+  class={className}>
+  <slot/>
+</button>
+
+<style>
+  dialog[open] {
+    scale: 1;
+    transition: scale .3s ease-in-out;
+    opacity: 1;
+  }
+  dialog {
+    transition: scale .3s ease, display .3s ease allow-discrete, opacity .3s ease-in;
+    opacity: 0;
+    scale: 0.8;
+  }
+</style>

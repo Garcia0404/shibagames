@@ -1,35 +1,103 @@
 ---
-import ProductCard from "./ProductCard.astro"
-import Section from "./Section.astro"
-const featuredProducts = [
+import ProductCard from "./ProductCard.astro";
+import Section from "./Section.astro";
+import type { ConsoleGame } from "../types";
+const featuredProducts: ConsoleGame[] = [
   {
-    nameProduct:'Nintendo Switch',
-    price:299.99,
-    src:'/shiba_games-logo.svg'
+    name: "Nintendo Switch",
+    id: '#0000001',
+    price: 299.99,
+    images: ["/shiba_games-logo.svg"],
+    games: [
+      {
+        title: 'The Legend of Zelda: Breath of the Wild',
+        id: '#0000001-1',
+        price: 59.99,
+        description: 'An open-world adventure game set in the land of Hyrule.',
+        rating: 4.9,
+        images: ['/images/zelda.jpg'],
+        details: {
+          developer: 'Nintendo',
+          release_date: '2017-03-03',
+          platform: 'Nintendo Switch'
+        },
+        categories: ['Adventure', 'RPG']
+      }
+    ]
   },
   {
-    nameProduct:'PlayStation 5',
-    price:499.99,
-    src:'/shiba_games-logo.svg'
+    name: "PlayStation 5",
+    id: '#0000002',
+    price: 499.99,
+    images: ["/shiba_games-logo.svg"],
+    games: [
+      {
+        title: 'Spider-Man: Miles Morales',
+        id: '#0000002-1',
+        price: 49.99,
+        description: 'An action-adventure game featuring the Marvel superhero Miles Morales.',
+        rating: 4.8,
+        images: ['/images/spiderman.jpg'],
+        details: {
+          developer: 'Insomniac Games',
+          release_date: '2020-11-12',
+          platform: 'PlayStation 5'
+        },
+        categories: ['Action', 'Adventure']
+      }
+    ]
   },
   {
-    nameProduct:'Xbox Series X',
-    price:499.99,
-    src:'/shiba_games-logo.svg'
+    name: "Xbox Series X",
+    id: '#0000003',
+    price: 499.99,
+    images: ["/shiba_games-logo.svg"],
+    games: [
+      {
+        title: 'Halo Infinite',
+        id: '#0000003-1',
+        price: 59.99,
+        description: 'A first-person shooter game featuring the iconic Master Chief.',
+        rating: 4.7,
+        images: ['/images/halo.jpg'],
+        details: {
+          developer: '343 Industries',
+          release_date: '2021-12-08',
+          platform: 'Xbox Series X'
+        },
+        categories: ['Shooter', 'Action']
+      }
+    ]
   },
   {
-    nameProduct:'The Legend of Zelda',
-    price:59.99,
-    src:'/shiba_games-logo.svg'
+    name: "Steam Deck",
+    id: '#0000004',
+    price: 399.99,
+    images: ["/shiba_games-logo.svg"],
+    games: [
+      {
+        title: 'Hades',
+        id: '#0000004-1',
+        price: 24.99,
+        description: 'A rogue-like dungeon crawler game where you defy the god of the dead.',
+        rating: 4.9,
+        images: ['/images/hades.jpg'],
+        details: {
+          developer: 'Supergiant Games',
+          release_date: '2020-09-17',
+          platform: 'Steam Deck'
+        },
+        categories: ['Rogue-like', 'Action']
+      }
+    ]
   }
-]
+];
 ---
-<Section title="Productos Destacados" className=" text-white">
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 lg:grid-cols-4">
-    {
-      featuredProducts.map((product) => (
-        <ProductCard nameProduct={product.nameProduct} price={product.price} src={product.src}/>
-      ))
-    }
+
+<Section title="⭐ Productos Destacados" className="text-white">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {featuredProducts.map(product => (
+      <ProductCard key={product.id} {...product} />
+    ))}
   </div>
 </Section>

@@ -1,18 +1,17 @@
 ---
-interface Props{
-  src:string
-  nameProduct:string
-  price:number
-}
-const { src,nameProduct,price } = Astro.props
+import type { ConsoleGame } from "../types"
+import ConsoleDetailsModal from "./ConsoleDetailsModal.astro"
+
+const { images,name,price, ...props } = Astro.props as ConsoleGame
 ---
-<article class="bg-white rounded-lg bg-opacity-20 overflow-hidden">
+<article class="relative bg-white rounded-lg bg-opacity-20 overflow-hidden">
+  <ConsoleDetailsModal images={images} name={name} price={price}/>
   <div class="bg-gray-300 grid place-content-center">
-    <img src={src} alt={`Este producto es ${nameProduct}`} width="300px" height="300px">
+    <img src={images[0]} alt={`Este producto es ${name}`} width="300px" height="300px">
   </div>
   <div class="p-3">
     <div>
-      <h3>{nameProduct}</h3>
+      <h3>{name}</h3>
       <span class="text-[#1f9f00] font-bold">$ {price}</span>
     </div>
     <button class="w-full py-1 bg-rose-main rounded-md hover:scale-105 active:scale-95 transition-all">Agregar</button>

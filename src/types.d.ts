@@ -1,19 +1,24 @@
-interface Console {
-  name:string
-  id:string
-  images:string[]
-  games:Game[]
+export interface GameDetails {
+  developer: string;
+  release_date: string;
+  platform: string;
 }
-type Game = {
-  title:string
-  id:string
-  description:string
-  rating:number
-  images:string[]
-  details:{
-    developer:string
-    release_date:string
-    platform:string
-  }
-  categories:string[]
+
+export interface Game {
+  title: string;
+  id: string;
+  price: number;
+  description: string;
+  rating: number;
+  images: string[];
+  details: GameDetails;
+  categories: string[];
+}
+
+export interface ConsoleGame {
+  name: string;
+  id: string;
+  price: number;
+  images: string[];
+  games: Game[];
 }
